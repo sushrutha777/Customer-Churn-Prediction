@@ -19,9 +19,8 @@ with open('scaler.pkl', 'rb') as file:
     scaler = pickle.load(file)
 
 
-## streamlit app
+## Streamlit Web App
 st.title('Customer Churn PRediction')
-
 # User input
 geography = st.selectbox('Geography', onehot_encoder_geo.categories_[0])
 gender = st.selectbox('Gender', label_encoder_gender.classes_)
@@ -68,4 +67,3 @@ if prediction_proba > 0.5:
     st.write('The customer is likely to churn.')
 else:
     st.write('The customer is not likely to churn.')
-S
