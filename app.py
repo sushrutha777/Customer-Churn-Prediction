@@ -27,22 +27,27 @@ st.title('🔍 Customer Churn Prediction')
 st.markdown("Fill in the customer details to predict the chance of churn.")
 
 # User Inputs
-
 # --- Personal Information ---
 geography = st.selectbox('Geography', onehot_encoder_geo.categories_[0])
 gender = st.selectbox('Gender', label_encoder_gender.classes_)
 age = st.slider('Age', min_value=18, max_value=92, step=1)
 
-# --- Account Information ---
+# --- Financial Information ---
 credit_score = st.number_input('Credit Score', min_value=300, max_value=900, step=1)
-balance = st.number_input('Account Balance (in $)', min_value=0, format="%d", step=100)
-estimated_salary = st.number_input('Estimated Salary (in $)', min_value=0, format="%d", step=100)
+balance = st.number_input('Account Balance (in $)', min_value=0.00, format="%d", step=100)
+estimated_salary = st.number_input('Estimated Salary (in $)', min_value=0.00, format="%d", step=100)
 tenure = st.slider('Tenure (Years with Bank)', min_value=0, max_value=10, step=1)
 
-# --- Product & Usage Details ---
+# --- Product & Usage Information ---
 num_of_products = st.slider('Number of Products', min_value=1, max_value=4, step=1)
-has_cr_card = st.selectbox('Has Credit Card?', [0, 1])
-is_active_member = st.selectbox('Is Active Member?', [0, 1])
+
+has_cr_card_display = st.radio('Has Credit Card?', ['Yes', 'No'], horizontal=True)
+is_active_member_display = st.radio('Is Active Member?', ['Yes', 'No'], horizontal=True)
+
+# Convert "Yes"/"No" to binary for model input
+has_cr_card = 1 if has_cr_card_display == 'Yes' else 0
+is_active_member = 1 if is_active_member_display == 'Yes' else 0
+
 
 
 # Prepare input data
