@@ -24,7 +24,7 @@ with open('scaler.pkl', 'rb') as file:
 # Title
 st.title('🔍 Customer Churn Prediction')
 
-st.markdown("Fill in the customer details to predict the chance of churn.")
+st.markdown("Fill the customer details to predict the chance of churn.")
 
 # User Inputs
 # --- Personal Information ---
@@ -34,8 +34,8 @@ age = st.slider('Age', min_value=18, max_value=92, step=1)
 
 # --- Financial Information ---
 credit_score = st.number_input('Credit Score', min_value=300, max_value=900, step=1)
-balance = st.number_input('Account Balance (in $)', min_value=0.00, format="%d", step=100)
-estimated_salary = st.number_input('Estimated Salary (in $)', min_value=0.00, format="%d", step=100)
+balance = st.number_input('Account Balance (in $)', min_value=0.00, format="%.2f", step=100.0)
+estimated_salary = st.number_input('Estimated Salary (in $)', min_value=0.00, format="%.2f", step=100.0)
 tenure = st.slider('Tenure (Years with Bank)', min_value=0, max_value=10, step=1)
 
 # --- Product & Usage Information ---
