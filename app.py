@@ -22,9 +22,9 @@ with open('scaler.pkl', 'rb') as file:
     scaler = pickle.load(file)
 
 # Title
-st.title('🔍 Customer Churn Prediction')
+st.title('🔍 Bank Customer Churn Prediction')
 
-st.markdown("Fill the customer details to predict the chance of churn.")
+st.markdown("Fill the Customer Details to Predict the Chance of Churn.")
 
 # User Inputs
 # --- Personal Information ---
@@ -39,7 +39,7 @@ estimated_salary = st.number_input('Estimated Salary (in $)', min_value=0.00, fo
 tenure = st.slider('Tenure (Years with Bank)', min_value=0, max_value=10, step=1)
 
 # --- Product & Usage Information ---
-num_of_products = st.slider('Number of banking services', min_value=1, max_value=4, step=1)
+num_of_products = st.slider('Number of Banking Services', min_value=1, max_value=4, step=1)
 
 has_cr_card_display = st.radio('Has Credit Card?', ['Yes', 'No'], horizontal=True)
 is_active_member_display = st.radio('Is Active Member?', ['Yes', 'No'], horizontal=True)
